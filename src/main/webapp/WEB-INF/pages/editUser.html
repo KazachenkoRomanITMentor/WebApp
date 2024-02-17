@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit User</title>
+    <style>
+        /* Стиль таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        /* Стиль заголовков таблицы */
+        th {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* Стиль ячеек таблицы */
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        /* Зебра-стиль для четных строк */
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Стиль ссылок в ячейках таблицы */
+        td a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        /* Стиль кнопок в ячейках таблицы */
+        td button {
+            padding: 4px 8px;
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Стиль ссылок в футере таблицы */
+        footer a {
+            text-decoration: underline;
+            color: blue;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Edit User</h1>
+<form th:object="${user}" th:action="@{/update/{id}(id=${user.id})}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Name: <input type="text" th:field="*{name}" /></label><br/>
+    <label>Surname: <input type="text" th:field="*{surname}" /></label><br/>
+    <label>Age: <input type="number" th:field="*{age}" /></label><br/>
+    <label>Note: <input type="text" th:field="*{email}" /></label><br/>
+    <input type="submit" value="Save" />
+</form>
+<a th:href="@{/list}">Cancel</a>
+</body>
+</html>
+<body>
+
+</body>
+</html>
